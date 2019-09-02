@@ -13,7 +13,7 @@ class CreateApl01sTable extends Migration
      */
     public function up()
     {
-        Schema::create('apl-01s', function (Blueprint $table) {
+        Schema::create('apl01s', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('user_id')->unsigned();
             $table->string('nik');
@@ -26,17 +26,11 @@ class CreateApl01sTable extends Migration
             $table->longtext('alamat_rumah');
             $table->integer('no_telp')->nullable();
             $table->integer('no_hp');
-            $table->integer('kantor')->nullable();
+            $table->integer('no_kantor')->nullable();
             $table->string('email');
             $table->string('pendidikan_terakhir');
-            $table->string('nama_lembaga/perusahaaan');
-            $table->string('jabatan');
-            $table->longtext('alamat');
-            $table->integer('No_telp');
-            $table->string('fax')->nullable();
-            $table->string('email');
-            $table->string('judul');
-            $table->string('nomor');
+            $table->string('judul_sertifikasi');
+            $table->string('nomor_sertifikasi');
             $table->string('tujuan_asesmen');
             $table->timestamps();
         });
@@ -49,6 +43,6 @@ class CreateApl01sTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('apl-01s');
+        Schema::dropIfExists('apl01s');
     }
 }

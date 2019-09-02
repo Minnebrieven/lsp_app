@@ -15,8 +15,11 @@ class CreateBuktiKompetensiRelevansTable extends Migration
     {
         Schema::create('bukti_kompetensi_relevans', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->integer('apl_id')->unsigned();
             $table->string('rincian');
             $table->timestamps();
+
+            $table->foreign('apl_id')->references('id')->on('apl-01s')->onDelete('cascade');
         });
     }
 

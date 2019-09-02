@@ -13,7 +13,7 @@ class CreateApl02sTable extends Migration
      */
     public function up()
     {
-        Schema::create('apl-02s', function (Blueprint $table) {
+        Schema::create('apl02s', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps();
         });
@@ -26,6 +26,6 @@ class CreateApl02sTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('apl-02s');
+        Schema::dropIfExists('apl02s');
     }
 }
