@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateBuktiKelengkapanPemohonsTable extends Migration
+class CreateBuktiKompetensiRelevansTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,13 @@ class CreateBuktiKelengkapanPemohonsTable extends Migration
      */
     public function up()
     {
-        Schema::create('bukti_kelengkapan_pemohons', function (Blueprint $table) {
-            $table->bigIncrements('id');
+        Schema::create('bukti_kompetensi_relevans', function (Blueprint $table) {
+            $table->increments('id');
             $table->integer('apl_id')->unsigned();
-            $table->string('bukti_persyaratan');
+            $table->string('rincian');
             $table->timestamps();
 
-            $table->foreign('apl_id')->references('id')->on('apl-01s')->onDelete('cascade');
+            $table->foreign('apl_id')->references('id')->on('apl01s')->onDelete('cascade');
         });
     }
 
@@ -30,6 +30,6 @@ class CreateBuktiKelengkapanPemohonsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('bukti_kelengkapan_pemohons');
+        Schema::dropIfExists('bukti_kompetensi_relevans');
     }
 }

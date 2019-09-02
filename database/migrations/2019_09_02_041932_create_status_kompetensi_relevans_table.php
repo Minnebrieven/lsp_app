@@ -22,7 +22,7 @@ class CreateStatusKompetensiRelevansTable extends Migration
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('bukti_komptensi_relevan_id')->refrences('id')->on('bukti_kompetensi_relevans')->onDelete('cascade');
+            $table->foreign('bukti_kompetensi_relevan_id')->references('id')->on('bukti_kompetensi_relevans')->onDelete('cascade');
         });
     }
 

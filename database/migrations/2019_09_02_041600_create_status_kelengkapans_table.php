@@ -22,7 +22,7 @@ class CreateStatusKelengkapansTable extends Migration
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('bukti_kelengkapan_id')->refrences('id')->on('bukti_kelengkapan_pemohons')->onDelete('cascade');
+            $table->foreign('bukti_kelengkapan_id')->references('id')->on('bukti_kelengkapan_pemohons')->onDelete('cascade');
         });
     }
 

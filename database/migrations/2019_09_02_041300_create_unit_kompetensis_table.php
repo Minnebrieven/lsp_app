@@ -14,14 +14,14 @@ class CreateUnitKompetensisTable extends Migration
     public function up()
     {
         Schema::create('unit_kompetensis', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->integer('apl_id')->unsigned();
+            $table->increments('id');
+            $table->unsignedinteger('apl_id');
             $table->string('kode_unit');
             $table->string('judul_unit');
             $table->string('jenis_standar');
             $table->timestamps();
 
-            $table->foreign('apl_id')->references('id')->on('apl-01s')->onDelete('cascade');
+            $table->foreign('apl_id')->references('id')->on('apl01s')->onDelete('cascade');
         });
     }
 

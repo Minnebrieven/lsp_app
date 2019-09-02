@@ -14,7 +14,7 @@ class CreateApl01sTable extends Migration
     public function up()
     {
         Schema::create('apl01s', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->string('nik');
             $table->string('nisn');
