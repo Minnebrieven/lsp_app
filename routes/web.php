@@ -52,4 +52,5 @@ Route::post('/proses-register', 'LoginController@proses_register');
 
 Route::get('/panel', 'PanelController@index');
 Route::get('/panel/apl1', 'PanelController@apl1');
+Route::get('/panel/apl2', 'PanelController@apl2');
 Route::get('/panel/bukti-pembayaran', 'PanelController@bukti_pembayaran');

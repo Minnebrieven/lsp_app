@@ -16,6 +16,11 @@ class PanelController extends Controller
     	return view('panel.form-apl1');
     }
 
+    public function apl2()
+    {
+        return view('panel.form-apl2');
+    }
+
     public function bukti_pembayaran()
     {
     	return view('panel.bukti-pembayaran');
