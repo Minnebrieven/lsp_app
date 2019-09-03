@@ -12,7 +12,11 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
+});
+
+Route::get('/about', function () {
+    return view('landing.about');
 });
 
 
@@ -39,3 +43,13 @@ Route::group(['prefix' => 'sertifikasi/skema'], function()
 {
     Route::get('/{id}', 'SkemaController@get_skema');
 });
+
+Route::get('/login', 'LoginController@login');
+Route::post('/proses-login', 'LoginController@proses_login');
+
+Route::get('/register', 'LoginController@register');
+Route::post('/proses-register', 'LoginController@proses_register');
+
+Route::get('/panel', 'PanelController@index');
+Route::get('/panel/apl1', 'PanelController@apl1');
+Route::get('/panel/bukti-pembayaran', 'PanelController@bukti_pembayaran');
