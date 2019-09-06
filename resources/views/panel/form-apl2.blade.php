@@ -404,16 +404,10 @@
                   <div class="card-body">
                     <h5 class="card-title">Nama</h5>
                     <input type="text" class="form-control" name=""><br>
-                    <div style="float: right;">
-                      <h5 class="card-title">Tanda tangan/Tanggal
-                      </h5><br>
-                      <textarea style="height: 150px;width: 200px;"></textarea>
-                    </div>
-                  </div>
-                  <div class="card-body">
-                    <h4 class="mt-5 mb-4">Rekomendasi Asesor
+                    <div style="float: left;">
+                    <h4 class="">Rekomendasi Asesor
                     </h4>
-                    <div class="form-group row ">
+                    <div class="form-group row">
                       <label class="col-sm-3 text-white form-control-label">Asesmen Dilanjutkan<br></label>
                       <div class="col-sm-9">
                         <div class="i-checks">
@@ -439,7 +433,14 @@
                         </div>
                       </div>
                     </div>
+                    </div>
+                    <div style="float: right;">
+                      <h5 class="card-title">Tanda tangan/Tanggal
+                      </h5><br>
+                      <textarea style="height: 150px;width: 200px;"></textarea>
+                    </div>
                   </div>
+                  
                 </div>
               </div>
             </div>

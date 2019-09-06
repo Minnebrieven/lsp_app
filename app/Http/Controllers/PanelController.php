@@ -25,4 +25,9 @@ class PanelController extends Controller
     {
     	return view('panel.bukti-pembayaran');
     }
+
+    public function bayar()
+    {
+        return view('panel.bayar');
+    }
 }

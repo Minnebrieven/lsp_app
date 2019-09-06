@@ -130,7 +130,7 @@
             <li><a href="forms.html"> <i class="icon-padnote"></i>Forms </a></li>
             <li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-interface-windows"></i>Pembayaran </a>
               <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
-                <li><a href="#">Bayar</a></li>
+                <li><a href="/panel/bayar">Bayar</a></li>
                 <li><a href="/panel/bukti-pembayaran">Bukti Pembayaran</a></li>
                 <li><a href="#">Bukti Pendaftaran</a></li>
               </ul>
