@@ -22,7 +22,15 @@ class CreateApl02sTable extends Migration
             $table->string('nama_asesor');
             $table->string('nama_peserta');
             $table->date('tanggal');
+            $table->string('judul');
+            $table->string('nomor');
+            $table->string('tuk');
+            $table->string('nama_asesor');
+            $table->string('nama_peserta');
+            $table->string('tanggal');
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

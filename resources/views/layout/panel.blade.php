@@ -125,8 +125,8 @@
           <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
           <ul class="list-unstyled">
             <li class="active"><a href="/panel"> <i class="icon-home"></i>Home </a></li>
-            <li><a href="tables.html"> <i class="icon-grid"></i>APL 1 </a></li>
-            <li><a href="tables.html"> <i class="icon-grid"></i>APL 2 </a></li>
+            <li><a href="/panel/apl1"> <i class="icon-grid"></i>APL 1 </a></li>
+            <li><a href="/panel/apl2"> <i class="icon-grid"></i>APL 2 </a></li>
             <li><a href="forms.html"> <i class="icon-padnote"></i>Forms </a></li>
             <li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-interface-windows"></i>Pembayaran </a>
               <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
