@@ -25,8 +25,8 @@ class CreateDataPekerjaanSekarangsTable extends Migration
             $table->string('email');
             $table->timestamps();
 
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('apl_id')->references('id')->on('apl01s')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('apl_id')->references('id')->on('apl01s')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

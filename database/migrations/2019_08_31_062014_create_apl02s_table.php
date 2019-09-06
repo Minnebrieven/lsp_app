@@ -15,6 +15,13 @@ class CreateApl02sTable extends Migration
     {
         Schema::create('apl02s', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->integer('user_id')->unsigned();
+            $table->string('judul');
+            $table->string('nomor_sertifikasi');
+            $table->string('tuk');
+            $table->string('nama_asesor');
+            $table->string('nama_peserta');
+            $table->date('tanggal');
             $table->timestamps();
         });
     }
