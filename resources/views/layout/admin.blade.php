@@ -105,7 +105,7 @@
                           </ul>
                         </li>
                         <!-- Logout    -->
-                        <li class="nav-item"><a href="login.html" class="nav-link logout"> <span class="d-none d-sm-inline">Logout</span><i class="fa fa-sign-out"></i></a></li>
+                        <li class="nav-item"><a href="/logout" class="nav-link logout"> <span class="d-none d-sm-inline">Logout</span><i class="fa fa-sign-out"></i></a></li>
                       </ul>
                     </div>
                   </div>
@@ -131,6 +131,12 @@
                     <ul id="bank" class="collapse list-unstyled ">
                       <li><a href="/admin/tambah-bank">Tambah Bank</a></li>
                       <li><a href="/admin/list-bank">Daftar Bank</a></li>
+                    </ul>
+                  </li>
+                    <li><a href="#gallery" aria-expanded="false" data-toggle="collapse"> <i class="icon-interface-windows"></i>Gallery </a>
+                    <ul id="gallery" class="collapse list-unstyled ">
+                      <li><a href="/admin/tambah-gallery">Tambah Gallery</a></li>
+                      <li><a href="/admin/list-gallery">Daftar Gallery</a></li>
                     </ul>
                   </li>
                   <li><a href="forms.html"> <i class="icon-padnote"></i>Forms </a></li>

@@ -3,25 +3,24 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use \App\Bank;
-use Illuminate\Support\Facades\Input;
+use \App\Gallery;
 
-class BankController extends Controller
+class GalleryController extends Controller
 {
-    public function list_bank()
+	public function list_gallery()
     {
-        $bank = Bank::all();
-        return view('admin.bank.list-bank', compact('bank'));
+        $gallery = Gallery::all();
+        return view('admin.gallery.list-gallery', compact('gallery'));
     }
     
-    public function tambah_bank()
+    public function tambah_gallery()
     {
-    	return view('admin.bank.tambah-bank');
+    	return view('admin.gallery.tambah-gallery');
     }
 
-    public function proses_tambah_bank(Request $r)
+    public function proses_tambah_gallery(Request $r)
     {
-    	$tambah = new Bank;
+    	$tambah = new Gallery;
     	$tambah->nama_bank = $r->nama_bank;
     	$tambah->no_rekening = $r->no_rekening;
     	$tambah->nama_pemilik = $r->nama_pemilik;

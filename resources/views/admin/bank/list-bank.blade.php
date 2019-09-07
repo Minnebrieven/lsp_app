@@ -24,31 +24,19 @@
 					<table id="datatable1" style="width: 100%;" class="table">
 						<thead>
 							<tr>
-								<th>Name</th>
-								<th>Company</th>
-								<th>Email</th>
-								<th>Phone</th>
-								<th>City</th>
-								<th>Orders</th>
+								<th>No Rekening</th>
+								<th>Nama Bank</th>
+								<th>Nama Pemilik</th>
 							</tr>
 						</thead>
 						<tbody>
+							@foreach($bank as $b)
 							<tr>
-								<td><a href="javascript:void(0)" class="text-muted">Nielsen Cobb</a></td>
-								<td>Memora</td>
-								<td>nielsencobb@memora.com</td>
-								<td>+1 (851) 552-2735</td>
-								<td>Graniteville</td>
-								<td>0                                                 </td>
+								<td><a href="javascript:void(0)" class="text-muted">{{$b->no_rekening}}</a></td>
+								<td>{{$b->nama_bank}}</td>
+								<td>{{$b->nama_pemilik}}</td>
 							</tr>
-							<tr>
-								<td><a href="javascript:void(0)" class="text-muted">Margret Cote</a></td>
-								<td>Zilidium</td>
-								<td>margretcote@zilidium.com</td>
-								<td>+1 (893) 532-2218</td>
-								<td>Foxworth</td>
-								<td>2                                                 </td>
-							</tr>
+							@endforeach
 						</tbody>
 					</table>
 				</div>
