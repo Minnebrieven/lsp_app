@@ -41,62 +41,37 @@ class DaftarController extends Controller
         $apl->tujuan_asesmen = $req->input('tujuan_asesmen');
         $apl->save();
 
-        return(url('daftar/bukti_kelengkapan'));
+        return(url('daftar/data_pekerjaan'));
     }
 
-    public function edit_apl01($id)
+    public function data_pekerjaan($aplid)
     {
-        $apl01 = Apl01::find($id);
-        return view('admin.apl01.edit',['apl01'=>$apl01]);
+        return view('daftar.data_pekerjaan')->with('aplid',$aplid);
     }
 
-    public function update_apl01(Request $req)
+    public function data_pekerjaan_save(Request $r)
     {
-        $apl = Apl01::find($r);
-        $apl->nik = $req->input('nik');
-        $apl->nisn = $req->input('nisn');
-        $apl->nama_lengkap = $req->input('nama_lengkap');
-        $apl->tempat_lahir = $req->input('tempat_lahir');
-        $apl->jenis_kelamin = $req->input('jenis_kelamin');
-        $apl->kebangsaan = $req->input('kebangsaan');
-        $apl->alamat_rumah = $req->input('alamat_rumah');
-        $apl->no_telp = $req->input('no_telp');
-        $apl->no_hp = $req->input('no_hp');
-        $apl->no_kantor = $req->input('no_kantor');
-        $apl->email = $req->input('email');
-        $apl->pendidikan_terakhir = $req->input('pendidikan_terakhir');
-        $apl->judul_sertifikasi = $req->input('judul_sertifikasi');
-        $apl->nomor_sertifikasi = $req->input('nomor_sertifikasi');
-        $apl->tujuan_asesmen = $req->input('tujuan_asesmen');
-        $apl->save();
+        $pekerjaan = new Data_pekerjaan_sekarang();
+        $pekerjaan->user_id = Auth::user()->id;
+        $pekerjaan->apl_id = $r->input('apl_id');
+        $pekerjaan->nama_perusahaan = $r->input('nama_perusahaan');
+        $pekerjaan->jabatan = $r->input('jabatan');
+        $pekerjaan->alamat = $r->input('alamat');
+        $pekerjaan->no_telp = $r->input('no_telp');
+        $pekerjaan->fax = $r->input('fax');
+        $pekerjaan->email = $r->input('email');
+        $pekerjaan->save();
+
+        return redirect(url('daftar/bukti_kelengkapan'));
     }
 
-    public function delete_apl01($id)
-    {
-        $apl01 = Apl01::find($id);
-        $apl01->delete();
-        return redirect(url('/'));
-    }
-
-    public function buktikompetensi_add()
-    {
-        return view('admin.bukti.add');
-    }
-
-    public function buktikompetensi_add_save(Request $r)
-    {
-        $bukti = new BuktiKelengkapanPemohon();
-        $bukti->apl_id = $r->input('apl_id');
-        $bukti->bukti_persyaratan = $r->input('bukti_persyaratan');
-    }
-
-    public function buktikompetensi()
+    public function status_kelengkapan()
     {
         $kelengkapan = BuktiKelengkapanPemohon::with('kelengkapans')->get();
-        return view('operator.buktikompetensi.add',['kelengkapan' => $kelengkapan]);
+        return view('operator.buktikompetensi.add', ['kelengkapan' => $kelengkapan]);
     }
 
-    public function buktikompetensi_save(Request $req)
+    public function status_kelengkapan_save(Request $req)
     {
         $kelengkapan = BuktiKelengkapanPemohon::with('kelengkapans')->get();
         foreach ($kelengkapan as $index => $kel) 
@@ -109,17 +84,17 @@ class DaftarController extends Controller
             $status_kelengkapan->save();
         }
 
-        return redirect(url('daftar/kompetensirelevan'));
+        return redirect(url('daftar/kompetensi_relevan'));
     }
 
-    public function edit_buktikompetensi($id)
+    public function edit_status_kelengkapan($id)
     {
         $bukti = BuktiKelengkapanPemohon::find();
         $status = Status_kelengkapan::where('id',$id)->get();
         return view('admin.bukti.edit', ['bukti'=>$bukti, 'status'=>$status]);
     }
 
-    public function update_buktikompetensi(Request $r)
+    public function update_status_kelengkapan(Request $r)
     {
         $kelengkapan = BuktiKelengkapanPemohon::with('kelengkapans')->get();
         foreach ($kelengkapan as $index => $kel) 
@@ -134,10 +109,15 @@ class DaftarController extends Controller
         return redirect(url('daftar/kompetensirelevan'));
     }
 
+    public function kompetensi_relevan_add()
+    {
+        return view('admin.kompetensi_relevan.add');
+    }
+
     public function komptensi_relevan()
     {
         $kompetensi = BuktiKompetensiRelevan::with('kompetensirelevans')->get();
-        return view('daftar/kompetensirelevan', ['kompetensi' => $kompetensi]);
+        return view('daftar.kompetensirelevan', ['kompetensi' => $kompetensi]);
     }
 
     public function komptensi_relevan_save(Request $req)

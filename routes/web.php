@@ -19,39 +19,26 @@ Route::get('/about', function () {
     return view('landing.about');
 });
 
-
-Route::group(['prefix' => 'berita'], function()
-{
-    Route::get('/berita', 'BeritaController@all_berita');
-    Route::get('/berita/detail/{id}', 'BeritaController@detail_berita');
-
-    Route::post('/berita/new', 'BeritaController@create_berita');
-    Route::get('/berita/edit/{id}', 'BeritaContoller@edit_berita');
-    Route::post('/berita/edit/{id}', 'BeritaContoller@edit_berita_save');
-});
-
-Route::group(['prefix' => 'sertifikasi'], function()
-{
-    Route::get('/', 'SertifikasiController@sertifikasi');
-    Route::get('/new', 'SertifikasiController@add_sertifikasi');
-    Route::get('/edit/{id}', 'SertifikasiController@edit_sertifikasi');
-    Route::post('/save', 'SertifikasiController@save');
-    Route::post('/update', 'SertifikasiController@update_sertifikasi');
-});
-
-Route::group(['prefix' => 'sertifikasi/skema'], function()
-{
-    Route::get('/{id}', 'SkemaController@get_skema');
-});
-
 Route::get('/login', 'LoginController@login');
 Route::post('/proses-login', 'LoginController@proses_login');
 
 Route::get('/register', 'LoginController@register');
 Route::post('/proses-register', 'LoginController@proses_register');
 
-Route::get('/panel', 'PanelController@index');
-Route::get('/panel/apl1', 'PanelController@apl1');
-Route::get('/panel/apl2', 'PanelController@apl2');
-Route::get('/panel/bukti-pembayaran', 'PanelController@bukti_pembayaran');
-Route::get('/panel/bayar', 'PanelController@bayar');
+Route::group(['prefix' => 'panel'], function ()
+{
+    Route::get('/', 'PanelController@index');
+    Route::get('/apl1', 'PanelController@apl1');
+    Route::get('/apl2', 'PanelController@apl2');
+    Route::get('/bukti-pembayaran', 'PanelController@bukti_pembayaran');
+    Route::get('/bayar', 'PanelController@bayar');
+});
+
+Route::group(['prefix' => 'daftar'], function ()
+{
+    Route::get('/', 'DaftarController@apl01');
+    Route::get('/save', 'DaftarController@apl01save');
+    Route::get('/data_pekerjaan/{$aplid}', 'DaftarController@data_pekerjaan');
+    Route::get('/data_pekerjaan/save', 'DaftarController@data_pekerjaan_save');
+    
+});
