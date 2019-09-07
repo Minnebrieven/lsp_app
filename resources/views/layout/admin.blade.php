@@ -127,6 +127,12 @@
                     <li class="active"><a href="/panel"> <i class="icon-home"></i>Home </a></li>
                     <li><a href="/admin/apl1"> <i class="icon-grid"></i>APL 1 </a></li>
                     <li><a href="/admin/apl2"> <i class="icon-grid"></i>APL 2 </a></li>
+                    <li><a href="#kompetensi" aria-expanded="false" data-toggle="collapse"> <i class="icon-interface-windows"></i>Unit Kompetensi </a>
+                    <ul id="kompetensi" class="collapse list-unstyled ">
+                      <li><a href="/admin/tambah-kompetensi">Tambah Kompetensi</a></li>
+                      <li><a href="/admin/list-kompetensi">Daftar Kompetensi</a></li>
+                    </ul>
+                  </li>
                     <li><a href="#bank" aria-expanded="false" data-toggle="collapse"> <i class="icon-interface-windows"></i>Bank </a>
                     <ul id="bank" class="collapse list-unstyled ">
                       <li><a href="/admin/tambah-bank">Tambah Bank</a></li>

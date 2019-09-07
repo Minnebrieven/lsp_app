@@ -58,4 +58,8 @@ Route::post('/proses-tambah-bank', 'BankController@proses_tambah_bank');
 Route::get('/list-gallery', 'GalleryController@list_gallery');
 Route::get('/tambah-gallery', 'GalleryController@tambah_gallery');
 Route::post('/proses-tambah-gallery', 'GalleryController@proses_tambah_gallery');
+
+Route::get('/list-kompetensi', 'KompetensiController@list_kompetensi');
+Route::get('/tambah-kompetensi', 'KompetensiController@tambah_kompetensi');
+Route::post('/proses-tambah-kompetensi', 'KompetensiController@proses_tambah_kompetensi');
 });
