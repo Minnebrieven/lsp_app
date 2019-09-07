@@ -133,6 +133,12 @@
                       <li><a href="/admin/list-kompetensi">Daftar Kompetensi</a></li>
                     </ul>
                   </li>
+                    <li><a href="#berita" aria-expanded="false" data-toggle="collapse"> <i class="icon-interface-windows"></i>Berita </a>
+                    <ul id="berita" class="collapse list-unstyled ">
+                      <li><a href="/admin/tambah-berita">Tambah Berita</a></li>
+                      <li><a href="/admin/list-berita">Daftar Berita</a></li>
+                    </ul>
+                  </li>
                     <li><a href="#bank" aria-expanded="false" data-toggle="collapse"> <i class="icon-interface-windows"></i>Bank </a>
                     <ul id="bank" class="collapse list-unstyled ">
                       <li><a href="/admin/tambah-bank">Tambah Bank</a></li>

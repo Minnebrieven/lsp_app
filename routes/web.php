@@ -53,4 +53,8 @@ Route::post('/proses-tambah-gallery', 'GalleryController@proses_tambah_gallery')
 Route::get('/list-kompetensi', 'KompetensiController@list_kompetensi');
 Route::get('/tambah-kompetensi', 'KompetensiController@tambah_kompetensi');
 Route::post('/proses-tambah-kompetensi', 'KompetensiController@proses_tambah_kompetensi');
+
+Route::get('/list-berita', 'BeritaController@list_berita');
+Route::get('/tambah-berita', 'BeritaController@tambah_berita');
+Route::post('/proses-tambah-berita', 'BeritaController@proses_tambah_berita');
 });
