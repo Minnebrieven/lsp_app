@@ -22,15 +22,6 @@ Route::get('/register', 'LoginController@register');
 Route::post('/proses-register', 'LoginController@proses_register');
 Route::get('/logout', 'LoginController@logout');
 
-Route::group(['prefix' => 'panel'], function ()
-{
-    Route::get('/', 'PanelController@index');
-    Route::get('/apl1', 'PanelController@apl1');
-    Route::get('/apl2', 'PanelController@apl2');
-    Route::get('/bukti-pembayaran', 'PanelController@bukti_pembayaran');
-    Route::get('/bayar', 'PanelController@bayar');
-});
-
 Route::group(['prefix' => 'daftar'], function ()
 {
     Route::get('/', 'DaftarController@apl01');
