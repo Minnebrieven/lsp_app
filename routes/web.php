@@ -50,8 +50,20 @@ Route::post('/proses-login', 'LoginController@proses_login');
 Route::get('/register', 'LoginController@register');
 Route::post('/proses-register', 'LoginController@proses_register');
 
+
+
 Route::get('/panel', 'PanelController@index');
-Route::get('/panel/apl1', 'PanelController@apl1');
-Route::get('/panel/apl2', 'PanelController@apl2');
-Route::get('/panel/bukti-pembayaran', 'PanelController@bukti_pembayaran');
-Route::get('/panel/bayar', 'PanelController@bayar');
+Route::group(['prefix' => 'panel'], function(){
+Route::get('/apl1', 'PanelController@apl1');
+Route::get('/apl2', 'PanelController@apl2');
+Route::get('/bukti-pembayaran', 'PanelController@bukti_pembayaran');
+Route::get('/detail-pembayaran', 'PanelController@detail_pembayaran');
+Route::get('/bayar', 'PanelController@bayar');
+});
+
+Route::get('/admin', 'AdminController@index');
+Route::group(['prefix' => 'admin'], function(){
+Route::get('/list-bank', 'BankController@list_bank');
+Route::get('/tambah-bank', 'BankController@tambah_bank');
+Route::post('/proses-tambah-bank', 'BankController@proses_tambah_bank');
+});
