@@ -17,10 +17,10 @@ class CreateDataPekerjaanSekarangsTable extends Migration
             $table->bigIncrements('id');
             $table->integer('user_id')->unsigned();
             $table->integer('apl_id')->unsigned();
-            $table->string('nama_lembaga/perusahaaan');
+            $table->string('nama_perusahaaan');
             $table->string('jabatan');
             $table->longtext('alamat');
-            $table->integer('No_telp');
+            $table->integer('no_telp');
             $table->string('fax')->nullable();
             $table->string('email');
             $table->timestamps();
