@@ -20,6 +20,7 @@ Route::get('/login', 'LoginController@login');
 Route::post('/proses-login', 'LoginController@proses_login');
 Route::get('/register', 'LoginController@register');
 Route::post('/proses-register', 'LoginController@proses_register');
+Route::get('/logout', 'LoginController@logout');
 
 Route::group(['prefix' => 'panel'], function ()
 {
@@ -47,9 +48,14 @@ Route::get('/bukti-pembayaran', 'PanelController@bukti_pembayaran');
 Route::get('/detail-pembayaran', 'PanelController@detail_pembayaran');
 Route::get('/bayar', 'PanelController@bayar');
 });
+
 Route::get('/admin', 'AdminController@index');
 Route::group(['prefix' => 'admin'], function(){
 Route::get('/list-bank', 'BankController@list_bank');
 Route::get('/tambah-bank', 'BankController@tambah_bank');
 Route::post('/proses-tambah-bank', 'BankController@proses_tambah_bank');
+
+Route::get('/list-gallery', 'GalleryController@list_gallery');
+Route::get('/tambah-gallery', 'GalleryController@tambah_gallery');
+Route::post('/proses-tambah-gallery', 'GalleryController@proses_tambah_gallery');
 });
