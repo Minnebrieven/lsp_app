@@ -30,7 +30,7 @@
 							</tr>
 						</thead>
 						<tbody>
-							@foreach($bank as $b)
+							@foreach($kompetensi as $b)
 							<tr>
 								<td><a href="javascript:void(0)" class="text-muted">{{$b->no_rekening}}</a></td>
 								<td>{{$b->nama_bank}}</td>

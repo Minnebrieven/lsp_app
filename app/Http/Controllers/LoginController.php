@@ -18,15 +18,30 @@ class LoginController extends Controller
     	return view('login.register');
     }
 
+    public function logout()
+    {
+        Auth::logout();
+        return redirect('/login');
+    }
+
     public function proses_login(Request $r)
     {
-    	$username = $r->username;
-    	$password = $r->password;
+        $username = $r->username;
+        $password = $r->password;
 
-    	if(Auth::attempt(['email' => $username, 'password' => $password]) || Auth::attempt(['username' => $username, 'password' => $password]))
-    	{
-    		return redirect('/dashboard');
-    	}
+        if(Auth::attempt(['email' => $username, 'password' => $password]) || Auth::attempt(['username' => $username, 'password' => $password]))
+        {
+            if(Auth::user()->role == 'user')
+            {
+                return redirect('/panel');
+            }
+            else
+            {
+                return redirect('/admin');
+            }
+            return redirect('/dashboard');
+        }
+        return 'asfas';
     }
 
     public function proses_register(Request $r)
@@ -38,6 +53,6 @@ class LoginController extends Controller
         $register->no_hp = $r->no_hp;
         $register->password = bcrypt($r->password);
         $register->save();
-        return redirect('/login');
+        return redirect('/login')->with('sukses', 'Anda Berhasil Daftar');
     }
 }

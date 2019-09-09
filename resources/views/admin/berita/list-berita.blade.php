@@ -24,17 +24,15 @@
 					<table id="datatable1" style="width: 100%;" class="table">
 						<thead>
 							<tr>
-								<th>No Rekening</th>
-								<th>Nama Bank</th>
-								<th>Nama Pemilik</th>
+								<th>Judul</th>
+								<th>Isi</th>
 							</tr>
 						</thead>
 						<tbody>
-							@foreach($bank as $b)
+							@foreach($berita as $b)
 							<tr>
-								<td><a href="javascript:void(0)" class="text-muted">{{$b->no_rekening}}</a></td>
-								<td>{{$b->nama_bank}}</td>
-								<td>{{$b->nama_pemilik}}</td>
+								<td><a href="javascript:void(0)" class="text-muted">{{$b->judul}}</a></td>
+								<td>{{$b->isi}}</td>
 							</tr>
 							@endforeach
 						</tbody>

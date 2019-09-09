@@ -3,25 +3,24 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use \App\Bank;
-use Illuminate\Support\Facades\Input;
+use \App\UnitKompetensi;
 
-class BankController extends Controller
+class KompetensiController extends Controller
 {
-    public function list_bank()
+	public function list_kompetensi()
     {
-        $bank = Bank::all();
-        return view('admin.bank.list-bank', compact('bank'));
+        $kompetensi = UnitKompetensi::all();
+        return view('admin.kompetensi.list-kompetensi', compact('kompetensi'));
     }
     
-    public function tambah_bank()
+    public function tambah_kompetensi()
     {
-    	return view('admin.bank.tambah-bank');
+    	return view('admin.kompetensi.tambah-kompetensi');
     }
 
-    public function proses_tambah_bank(Request $r)
+    public function proses_tambah_kompetensi(Request $r)
     {
-    	$tambah = new Bank;
+    	$tambah = new Gallery;
     	$tambah->nama_bank = $r->nama_bank;
     	$tambah->no_rekening = $r->no_rekening;
     	$tambah->nama_pemilik = $r->nama_pemilik;
