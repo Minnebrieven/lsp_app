@@ -16,7 +16,7 @@ class DaftarController extends Controller
 {
     public function apl01()
     {
-        $unit = UnitKompetensi::with('units')->get;
+        $unit = UnitKompetensi::with('units')->get();
         return view('user.daftar.apl1')->with('unit', $unit);
     }
 
@@ -87,33 +87,6 @@ class DaftarController extends Controller
         return redirect(url('daftar/kompetensi_relevan'));
     }
 
-    public function edit_status_kelengkapan($id)
-    {
-        $bukti = BuktiKelengkapanPemohon::find();
-        $status = Status_kelengkapan::where('id',$id)->get();
-        return view('admin.bukti.edit', ['bukti'=>$bukti, 'status'=>$status]);
-    }
-
-    public function update_status_kelengkapan(Request $r)
-    {
-        $kelengkapan = BuktiKelengkapanPemohon::with('kelengkapans')->get();
-        foreach ($kelengkapan as $index => $kel) 
-        {
-            $status_kelengkapan = Status_kelengkapan::find($r->input('id'));
-            $status_kelengkapan->bukti_kelengkapan_id = $r->input('bukti_kelengkapan_id');
-            $status_kelengkapan->status = $req->input('status'.$index);
-            $status_kelengkapan->file = $req->input('file'.$index);
-            $status_kelengkapan->save();
-        }
-
-        return redirect(url('daftar/kompetensirelevan'));
-    }
-
-    public function kompetensi_relevan_add()
-    {
-        return view('admin.kompetensi_relevan.add');
-    }
-
     public function komptensi_relevan()
     {
         $kompetensi = BuktiKompetensiRelevan::with('kompetensirelevans')->get();
@@ -130,7 +103,32 @@ class DaftarController extends Controller
             $status->bukti_kompetensi_relevan_id = $stats->id;
             $status->status = $req->input('status_relevan'.$index);
             $status->file = $req->input('file_relevan'.$index);
-            $status->save(); 
+            $status->save();
+        }
+        
+        redirect(url('daftar/apl02'));
+    }
+
+    public function apl02()
+    {
+        $unit = UnitKompetensi::with('units')->get();
+        $pertanyaan = DaftarPertanyaan::with('pertanyaans')->get();
+
+        return view('daftar.apl02');
+    }
+
+    public function apl02save(Request $r)
+    {
+        $pertanyaan = DaftarPertanyaan::with('pertanyaans')->get();
+        foreach($pertanyaan as $index => $jwbn)
+        {
+            $jawaban = new JawabanPertanyaan();
+            $jawaban->user_id = Auth::user()->id;
+            $jawaban->pertanyaan_id = $r->input('pertanyaan_id');
+            $jawaban->penilaian = $r->input('penilaian');
+            $jawaban->diisi_asesor = $r->input('diisi_asesor');
+            $jawaban->bukti_kompetensi = $r->input('bukti_kompetensi');
+            $jawaban->save();
         }
     }
 }
