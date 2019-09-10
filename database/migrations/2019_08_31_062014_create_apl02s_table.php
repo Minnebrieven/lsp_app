@@ -17,12 +17,21 @@ class CreateApl02sTable extends Migration
             $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->string('judul');
-            $table->string('nomor_sertifikasi');
+            $table->string('nomor');
             $table->string('tuk');
             $table->string('nama_asesor');
             $table->string('nama_peserta');
             $table->date('tanggal');
-            $table->string('nomor');
+            $table->string('kompetensi1')->nullable();
+            $table->string('kompetensi2')->nullable();
+            $table->string('kompetensi3')->nullable();
+            $table->string('kompetensi4')->nullable();
+            $table->string('kompetensi5')->nullable();
+            $table->string('kompetensi6')->nullable();
+            $table->string('kompetensi7')->nullable();
+            $table->string('kompetensi8')->nullable();
+            $table->string('kompetensi9')->nullable();
+            $table->string('kompetensi10');
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');

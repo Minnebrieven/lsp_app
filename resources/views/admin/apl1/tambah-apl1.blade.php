@@ -19,10 +19,10 @@
       <div class="col-lg-12">
         <div class="card">
           <div class="card-header">
-            <h4>Tambah Unit Kompetensi</h4>
+            <h4>Tambah Berita</h4>
           </div>
           <div class="card-body">
-            <form class="form-validate" method="POST" action="/admin/proses-tambah-kompetensi">
+            <form class="form-validate" method="POST" action="/admin/proses-tambah-berita">
               @csrf
               <div class="form-group">
                 @if ($message = Session::get('sukses'))
@@ -31,23 +31,19 @@
                   <strong>{{ $message }}</strong>
                 </div>
                 @endif
-                <label>Kode Unit</label>
-                <input name="kode_unit" type="number" placeholder="Kode Unit" required data-msg="Silahkan masukkan kode unit" class="form-control">
+                <label>Judul</label>
+                <input name="judul" type="text" placeholder="Judul Berita" required data-msg="Silahkan masukkan judul berita" class="form-control">
               </div>
               <div class="form-group">
-                <label>Judul Unit</label>
-                <input name="judul_unit" type="text" placeholder="Judul Unit" required data-msg="Silahkan masukkan judul unit" class="form-control">
+                <label>Isi</label>
+                <textarea name="isi" type="text" placeholder="Isi Berita" required data-msg="Silahkan masukkan isi berita" class="form-control"></textarea>
               </div>
               <div class="form-group">
-                <label>Nomor</label>
-                <input name="nomor" type="number" placeholder="Nomor" required data-msg="Silahkan masukkan nomor" class="form-control">
+                <label>Gambar</label>
+                <input name="gambar" type="file" placeholder="Gambar" required data-msg="Silahkan masukkan gambar berita" class="form-control">
               </div>
               <div class="form-group">
-                <label>Jenis Standar (Standar Khusus/ Standar Internasional/SKKNI)</label>
-                <input name="jenis_standar" type="text" placeholder="Jenis Standar" required data-msg="Silahkan masukkan jenis standar" class="form-control">
-              </div>
-              <div class="form-group">
-                <input type="submit" value="Tambah Kompetensi" class="btn btn-primary">
+                <input type="submit" value="Tambah Berita" class="btn btn-primary">
               </div>
             </form>
           </div>

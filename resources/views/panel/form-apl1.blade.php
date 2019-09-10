@@ -30,7 +30,8 @@
                       <h3 class="h4">APL 1</h3>
                     </div>
                     <div class="card-body">
-                      <form class="form-horizontal" method="POST">
+                      <form action="/daftar/save" class="form-horizontal" method="POST">
+                        @csrf
                         <div class="form-group row">
                           <label class="col-sm-3 form-control-label"><label style="color: red">*</label>NIK</label>
                           <div class="col-sm-9">
@@ -89,7 +90,7 @@
                         <div class="form-group row">
                           <label class="col-sm-3 form-control-label"><label style="color: red">*</label>Jenis Kelamin</label>
                           <div class="col-sm-9">
-                            <select name="account" class="form-control mb-3">
+                            <select name="jenis_kelamin" class="form-control mb-3">
                               <option>Pilih</option>
                               <option value="laki-laki">Laki-laki</option>
                               <option value="perempuan">Perempuan</option>
@@ -99,7 +100,7 @@
                         <div class="form-group row">
                           <label class="col-sm-3 form-control-label"><label style="color: red">*</label>Kebangsaan</label>
                           <div class="col-sm-9">
-                            <input type="text" name="tempat_lahir" class="form-control" placeholder="Negara Kebangsaan" required>
+                            <input type="text" name="kebangsaan" class="form-control" placeholder="Negara Kebangsaan" required>
                             <small class="help-block-none">
                               *Contoh: Indonesia
                             </small>
@@ -109,7 +110,7 @@
                         <div class="form-group row">
                           <label class="col-sm-3 form-control-label"><label style="color: red">*</label>Alamat Rumah</label>
                           <div class="col-sm-9">
-                            <textarea class="form-control" placeholder="Alamat Rumah" required></textarea>
+                            <textarea name="alamat_rumah" class="form-control" placeholder="Alamat Rumah" required></textarea>
                             <small class="help-block-none">
                               *Contoh: Jl. Mayjen Soetoyo, Cawang, Kramatjati, RT.2/RW.9 13630
                             </small>
@@ -147,7 +148,7 @@
                         <div class="form-group row">
                           <label class="col-sm-3 form-control-label"><label style="color: red">*</label>Pendidikan Terakhir</label>
                           <div class="col-sm-9">
-                            <select name="account" class="form-control mb-3">
+                            <select name="pendidikan_terakhir" class="form-control mb-3">
                               <option>Pilih</option>
                               <option value="sd">SD</option>
                               <option value="smp">SMP</option>
@@ -185,19 +186,16 @@
                         </div>
                         <div class="line"></div>
                         <div class="form-group row">
-                          <label class="col-sm-3 form-control-label"><label style="color: red">*</label>Tujuan Asesmen</label>
+                          <label class="col-sm-3 form-control-label">Tujuan Asesmen<br></label>
                           <div class="col-sm-9">
-                            <input type="text" name="tujuan_asesmen" class="form-control" placeholder="tujuan_asesmen" required>
-                            <small class="help-block-none">
-                              *Contoh: 081586843522
-                            </small>
-                          </div>
-                        </div>
-                        <div class="line"></div>
-                        <div class="form-group row">
-                          <label for="fileInput" class="col-sm-3 form-control-label">File input</label>
-                          <div class="col-sm-9">
-                            <input id="fileInput" type="file" class="form-control-file">
+                            <div class="i-checks">
+                              <input id="radioCustom1" type="radio" value="option1" name="tujuan_asesmen" class="radio-template">
+                              <label for="radioCustom1">Sertifikasi</label>
+                            </div>
+                            <div class="i-checks">
+                              <input id="radioCustom2" type="radio" checked="" value="option2" name="tujuan_asesmen" class="radio-template">
+                              <label for="radioCustom2">Sertifikasi Ulang</label>
+                            </div>
                           </div>
                         </div>
                         <div class="line"></div>

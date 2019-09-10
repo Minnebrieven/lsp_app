@@ -30,7 +30,7 @@
             <h3 class="h4">APL 2</h3>
           </div>
           <div class="card-body">
-            <form class="form-horizontal">
+            <form action="/daftar/apl02" class="form-horizontal" method="POST">
               <div class="form-group row">
                 <label class="col-sm-3 form-control-label"><label style="color: red">*</label>NIK</label>
                 <div class="col-sm-9">

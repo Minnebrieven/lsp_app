@@ -5,12 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Apl01;
+use App\Apl02;
 use App\Data_pekerjaan_sekarang;
 use App\UnitKompetensi;
 use App\BuktiKelengkapanPemohon;
 use App\Status_kelengkapan;
 use App\BuktiKompetensiRelevan;
 use App\Status_kompetensi_relevan;
+use Auth;
 
 class DaftarController extends Controller
 {
@@ -20,7 +22,7 @@ class DaftarController extends Controller
         return view('user.daftar.apl1')->with('unit', $unit);
     }
 
-    public function apl01save(Request $req, $judul_sertifikasi, $nomor_sertifikasi)
+    public function apl01save(Request $req)
     {
         $apl = new Apl01;
         $apl->user_id = Auth::user()->id;
@@ -28,7 +30,8 @@ class DaftarController extends Controller
         $apl->nisn = $req->input('nisn');
         $apl->nama_lengkap = $req->input('nama_lengkap');
         $apl->tempat_lahir = $req->input('tempat_lahir');
-        $apl->jenis_kelamin = $req->input('jenis_kelamin');
+        $apl->tanggal_lahir = $req->tanggal_lahir;
+        $apl->jenis_kelamin = $req->jenis_kelamin;
         $apl->kebangsaan = $req->input('kebangsaan');
         $apl->alamat_rumah = $req->input('alamat_rumah');
         $apl->no_telp = $req->input('no_telp');
@@ -36,8 +39,8 @@ class DaftarController extends Controller
         $apl->no_kantor = $req->input('no_kantor');
         $apl->email = $req->input('email');
         $apl->pendidikan_terakhir = $req->input('pendidikan_terakhir');
-        $apl->judul_sertifikasi = $judul_sertifikasi;
-        $apl->nomor_sertifikasi = $nomor_sertifikasi;
+        $apl->judul_sertifikasi = $req->judul_sertifikasi;
+        $apl->nomor_sertifikasi = $req->nomor_sertifikasi;
         $apl->tujuan_asesmen = $req->input('tujuan_asesmen');
         $apl->save();
 
@@ -117,7 +120,7 @@ class DaftarController extends Controller
         return view('daftar.apl02');
     }
 
-    public function apl02save(Request $r)
+    public function apl02(Request $r)
     {
         $pertanyaan = DaftarPertanyaan::with('pertanyaans')->get();
         foreach($pertanyaan as $index => $jwbn)
@@ -130,5 +133,16 @@ class DaftarController extends Controller
             $jawaban->bukti_kompetensi = $r->input('bukti_kompetensi');
             $jawaban->save();
         }
+    }
+
+    public function apl2save(Request $r)
+    {
+        $apl2 = new Apl02;
+        $apl2->judul = $r->judul;
+        $apl2->nomor = $r->nomor;
+        $apl2->tuk = $r->tuk;
+        $apl2->nama_asesor = $r->nama_asesor;
+        $apl2->nama_peserta = $r->nama_peserta;
+        $apl2->tanggal = $r->tanggal;
     }
 }

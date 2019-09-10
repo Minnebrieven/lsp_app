@@ -125,8 +125,17 @@
                   <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
                   <ul class="list-unstyled">
                     <li class="active"><a href="/panel"> <i class="icon-home"></i>Home </a></li>
-                    <li><a href="/admin/apl1"> <i class="icon-grid"></i>APL 1 </a></li>
-                    <li><a href="/admin/apl2"> <i class="icon-grid"></i>APL 2 </a></li>
+                    <li><a href="#apl1" aria-expanded="false" data-toggle="collapse"> <i class="icon-interface-windows"></i>APL 1 </a>
+                    <ul id="apl1" class="collapse list-unstyled ">
+                      <li><a href="/admin/list-apl1">Daftar APL 1</a></li>
+                    </ul>
+                  </li>
+                    <li><a href="#pertanyaan" aria-expanded="false" data-toggle="collapse"> <i class="icon-interface-windows"></i>Pertanyaan </a>
+                    <ul id="pertanyaan" class="collapse list-unstyled ">
+                      <li><a href="/admin/tambah-pertanyaan">Tambah Pertanyaan</a></li>
+                      <li><a href="/admin/list-pertanyaan">Daftar Pertanyaan</a></li>
+                    </ul>
+                  </li>
                     <li><a href="#kompetensi" aria-expanded="false" data-toggle="collapse"> <i class="icon-interface-windows"></i>Unit Kompetensi </a>
                     <ul id="kompetensi" class="collapse list-unstyled ">
                       <li><a href="/admin/tambah-kompetensi">Tambah Kompetensi</a></li>
@@ -151,9 +160,6 @@
                       <li><a href="/admin/list-gallery">Daftar Gallery</a></li>
                     </ul>
                   </li>
-                  <li><a href="forms.html"> <i class="icon-padnote"></i>Forms </a></li>
-                  <li><a href="forms.html"> <i class="icon-padnote"></i>Forms </a></li>
-                  <li><a href="forms.html"> <i class="icon-padnote"></i>Forms </a></li>
                   <li><a href="#pembayaran" aria-expanded="false" data-toggle="collapse"> <i class="icon-interface-windows"></i>Pembayaran </a>
                   <ul id="pembayaran" class="collapse list-unstyled ">
                     <li><a href="/panel/bayar">Bayar</a></li>

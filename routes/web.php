@@ -24,14 +24,14 @@ Route::get('/logout', 'LoginController@logout');
 Route::group(['prefix' => 'daftar'], function ()
 {
     Route::get('/', 'DaftarController@apl01');
-    Route::get('/save', 'DaftarController@apl01save');
+    Route::post('/save', 'DaftarController@apl01save');
     Route::get('/data_pekerjaan/{$aplid}', 'DaftarController@data_pekerjaan');
     Route::post('/data_pekerjaan/save', 'DaftarController@data_pekerjaan_save');
     Route::get('/status_kelengkapan', 'DaftarController@status_kelengkapan');
     Route::post('/status_kelengkapan_save', 'DaftarController@status_kelengkapan_save');
     Route::get('/kompetensi_relevan', 'DaftarController@kompetensi_relevan');
     Route::post('/kompetensi_relavan_save', 'DaftarController@kompetensi_relevan_save');
-    Route::get('/apl02', 'DaftarController@apl02');
+    Route::get('/apl02', 'DaftarController@apl02save');
 });
 
 Route::get('/panel', 'PanelController@index');
@@ -63,4 +63,12 @@ Route::post('/proses-tambah-kompetensi', 'KompetensiController@proses_tambah_kom
 Route::get('/list-berita', 'BeritaController@list_berita');
 Route::get('/tambah-berita', 'BeritaController@tambah_berita');
 Route::post('/proses-tambah-berita', 'BeritaController@proses_tambah_berita');
+
+Route::get('/list-pertanyaan', 'PertanyaanController@list_pertanyaan');
+Route::get('/tambah-pertanyaan', 'PertanyaanController@tambah_pertanyaan');
+Route::post('/proses-tambah-pertanyaan', 'PertanyaanController@proses_tambah_pertanyaan');
+
+Route::get('/list-apl1', 'Apl01Controller@list_apl1');
+Route::get('/tambah-apl1', 'Apl01Controller@tambah_apl1');
+Route::post('/proses-tambah-apl1', 'Apl01Controller@proses_tambah_apl1');
 });

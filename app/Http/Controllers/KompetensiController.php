@@ -20,18 +20,10 @@ class KompetensiController extends Controller
 
     public function proses_tambah_kompetensi(Request $r)
     {
-    	$tambah = new Gallery;
-    	$tambah->nama_bank = $r->nama_bank;
-    	$tambah->no_rekening = $r->no_rekening;
-    	$tambah->nama_pemilik = $r->nama_pemilik;
-    	$tambah->logo_bank = $r->logo_bank;
-
-    	if (Input::hasFile('logo_bank')) {
-            $file = $r->file('logo_bank');
-            $filename = $file->getClientOriginalName();
-            Input::file('logo_bank')->move('logo_bank/', $filename);
-            $tambah->logo_bank = $filename;
-        }
+    	$tambah = new UnitKompetensi;
+    	$tambah->nomor = $r->nomor;
+    	$tambah->kode_unit = $r->kode_unit;
+    	$tambah->judul_unit = $r->judul_unit;
 
     	$tambah->save();
 

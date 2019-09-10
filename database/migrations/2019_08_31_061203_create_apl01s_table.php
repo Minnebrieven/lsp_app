@@ -25,7 +25,7 @@ class CreateApl01sTable extends Migration
             $table->string('kebangsaan');
             $table->longtext('alamat_rumah');
             $table->integer('no_telp')->nullable();
-            $table->integer('no_hp');
+            $table->bigInteger('no_hp');
             $table->integer('no_kantor')->nullable();
             $table->string('email');
             $table->string('pendidikan_terakhir');

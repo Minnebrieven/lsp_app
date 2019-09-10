@@ -3,9 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use \App\Apl01;
 
 class Apl01Controller extends Controller
 {
+    public function list_apl1()
+    {
+        $apl1 = Apl01::all();
+        return view('admin.apl1.list-apl1', compact('apl1'));
+    }
+
     public function edit_apl01($id)
     {
         $apl01 = Apl01::find($id);

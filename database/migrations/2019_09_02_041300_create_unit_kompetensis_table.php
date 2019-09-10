@@ -15,10 +15,11 @@ class CreateUnitKompetensisTable extends Migration
     {
         Schema::create('unit_kompetensis', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedinteger('apl_id');
+            $table->unsignedinteger('apl_id')->nullable();
+            $table->integer('nomor');
             $table->string('kode_unit');
             $table->string('judul_unit');
-            $table->string('jenis_standar');
+            $table->string('jenis_standar')->nullable();
             $table->timestamps();
 
             $table->foreign('apl_id')->references('id')->on('apl01s')->onDelete('cascade');

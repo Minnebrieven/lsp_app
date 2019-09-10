@@ -15,14 +15,15 @@ class CreateDaftarPertanyaansTable extends Migration
     {
         Schema::create('daftar_pertanyaans', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('apl02_id')->unsigned();
-            $table->integer('unit_id')->unsigned();
+            $table->integer('apl02_id')->unsigned()->nullable();
+            $table->integer('unit_id')->unsigned()->nullable();
             $table->string('elemen_kompetensi');
+            $table->string('kuk');
             $table->string('pertanyaan');
             $table->timestamps();
 
-            $table->foreign('apl02_id')->references('id')->on('apl02s')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('unit_id')->references('id')->on('unit_kompetensis')->onDelete('cascade')->onUpdate('cascade');
+            // $table->foreign('apl02_id')->references('id')->on('apl02s')->onDelete('cascade')->onUpdate('cascade');
+            // $table->foreign('unit_id')->references('id')->on('unit_kompetensis')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

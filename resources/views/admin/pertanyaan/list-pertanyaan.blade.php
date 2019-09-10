@@ -17,26 +17,24 @@
 	<div class="container-fluid">
 		<div class="card">
 			<div class="card-header">
-				<h4>Data Table</h4>
+				<h4>Table Pertanyaan</h4>
 			</div>
 			<div class="card-body">
 				<div class="table-responsive">
 					<table id="datatable1" style="width: 100%;" class="table">
 						<thead>
 							<tr>
-								<th>Nomor</th>
-								<th>Kode Unit</th>
-								<th>Judul Unit</th>
-								<th>Jenis Standar</th>
+								<th>No KUK</th>
+								<th>Elemen Kompetensi</th>
+								<th>Pertanyaan</th>
 							</tr>
 						</thead>
 						<tbody>
-							@foreach($kompetensi as $b)
+							@foreach($pertanyaan as $b)
 							<tr>
-								<td><a href="javascript:void(0)" class="text-muted">{{$b->nomor}}</a></td>
-								<td>{{$b->kode_unit}}</td>
-								<td>{{$b->judul_unit}}</td>
-								<td>{{$b->jenis_standar}}</td>
+								<td><a href="javascript:void(0)" class="text-muted">{{$b->kuk}}</a></td>
+								<td>{{$b->elemen_kompetensi}}</td>
+								<td>{{$b->pertanyaan}}</td>
 							</tr>
 							@endforeach
 						</tbody>

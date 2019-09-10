@@ -24,19 +24,21 @@
 					<table id="datatable1" style="width: 100%;" class="table">
 						<thead>
 							<tr>
-								<th>Nomor</th>
-								<th>Kode Unit</th>
-								<th>Judul Unit</th>
-								<th>Jenis Standar</th>
+								<th>NIK</th>
+								<th>Nama</th>
+								<th>Nomor Sertifikasi</th>
+								<th>Email</th>
+								<th>No HP</th>
 							</tr>
 						</thead>
 						<tbody>
-							@foreach($kompetensi as $b)
+							@foreach($apl1 as $b)
 							<tr>
-								<td><a href="javascript:void(0)" class="text-muted">{{$b->nomor}}</a></td>
-								<td>{{$b->kode_unit}}</td>
-								<td>{{$b->judul_unit}}</td>
-								<td>{{$b->jenis_standar}}</td>
+								<td><a href="javascript:void(0)" class="text-muted">{{$b->nik}}</a></td>
+								<td>{{$b->nama_lengkap}}</td>
+								<td>{{$b->nomor_sertifikasi}}</td>
+								<td>{{$b->email}}</td>
+								<td>{{$b->no_hp}}</td>
 							</tr>
 							@endforeach
 						</tbody>

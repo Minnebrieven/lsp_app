@@ -8,22 +8,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="robots" content="all,follow">
     <!-- Bootstrap CSS-->
-    <link rel="stylesheet" href="http://localhost:8000/adminx/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://d19m59y37dris4.cloudfront.net/admin-premium/1-4-5/vendor/bootstrap/css/bootstrap.min.css">
     <!-- Font Awesome CSS-->
-    <link rel="stylesheet" href="http://localhost:8000/adminx/vendor/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://d19m59y37dris4.cloudfront.net/admin-premium/1-4-5/vendor/font-awesome/css/font-awesome.min.css">
     <!-- Fontastic Custom icon font-->
-    <link rel="stylesheet" href="http://localhost:8000/adminx/css/fontastic.css">
+    <link rel="stylesheet" href="https://d19m59y37dris4.cloudfront.net/admin-premium/1-4-5/css/fontastic.css">
     <!-- Google fonts - Poppins -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,700">
+    <!-- DataTables CSS-->
+    <link rel="stylesheet" href="https://d19m59y37dris4.cloudfront.net/admin-premium/1-4-5/vendor/datatables.net-bs4/css/dataTables.bootstrap4.css">
+    <link rel="stylesheet" href="https://d19m59y37dris4.cloudfront.net/admin-premium/1-4-5/vendor/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css">
     <!-- theme stylesheet-->
-    <link rel="stylesheet" href="http://localhost:8000/adminx/css/style.default.css" id="theme-stylesheet">
+    <link rel="stylesheet" href="https://d19m59y37dris4.cloudfront.net/admin-premium/1-4-5/css/style.default.premium.css" id="theme-stylesheet">
     <!-- Custom stylesheet - for your changes-->
-    <link rel="stylesheet" href="http://localhost:8000/adminx/css/custom.css">
+    <link rel="stylesheet" href="https://d19m59y37dris4.cloudfront.net/admin-premium/1-4-5/css/custom.css">
     <!-- Favicon-->
-    <link rel="shortcut icon" href="http://localhost:8000/adminx/img/favicon.ico">
-    <!-- Tweaks for older IEs--><!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+    <link rel="shortcut icon" href="https://d19m59y37dris4.cloudfront.net/admin-premium/1-4-5/img/favicon.ico">
   </head>
   <body>
     <div class="page">
@@ -127,7 +127,6 @@
             <li class="active"><a href="/panel"> <i class="icon-home"></i>Home </a></li>
             <li><a href="/panel/apl1"> <i class="icon-grid"></i>APL 1 </a></li>
             <li><a href="/panel/apl2"> <i class="icon-grid"></i>APL 2 </a></li>
-            <li><a href="forms.html"> <i class="icon-padnote"></i>Forms </a></li>
             <li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-interface-windows"></i>Pembayaran </a>
               <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
                 <li><a href="/panel/bayar">Bayar</a></li>
@@ -135,14 +134,6 @@
                 <li><a href="#">Bukti Pendaftaran</a></li>
               </ul>
             </li>
-            <li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-interface-windows"></i>Example dropdown </a>
-              <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
-                <li><a href="#">Page</a></li>
-                <li><a href="#">Page</a></li>
-                <li><a href="#">Page</a></li>
-              </ul>
-            </li>
-            <li><a href="login.html"> <i class="icon-interface-windows"></i>Login page </a></li>
           </ul><span class="heading">Extras</span>
           <ul class="list-unstyled">
             <li> <a href="#"> <i class="icon-flask"></i>Demo </a></li>
@@ -168,15 +159,20 @@
         </div>
       </div>
     </div>
-    <!-- JavaScript files-->
-    <script src="http://localhost:8000/adminx/vendor/jquery/jquery.min.js"></script>
-    <script src="http://localhost:8000/adminx/vendor/popper.js/umd/popper.min.js"> </script>
-    <script src="http://localhost:8000/adminx/vendor/bootstrap/js/bootstrap.min.js"></script>
-    <script src="http://localhost:8000/adminx/vendor/jquery.cookie/jquery.cookie.js"> </script>
-    <script src="http://localhost:8000/adminx/vendor/chart.js/Chart.min.js"></script>
-    <script src="http://localhost:8000/adminx/vendor/jquery-validation/jquery.validate.min.js"></script>
-    <script src="http://localhost:8000/adminx/js/charts-home.js"></script>
-    <!-- Main File-->
-    <script src="http://localhost:8000/adminx/js/front.js"></script>
+        <!-- JavaScript files-->
+        <script src="https://d19m59y37dris4.cloudfront.net/admin-premium/1-4-5/vendor/jquery/jquery.min.js"></script>
+        <script src="https://d19m59y37dris4.cloudfront.net/admin-premium/1-4-5/vendor/popper.js/umd/popper.min.js"> </script>
+        <script src="https://d19m59y37dris4.cloudfront.net/admin-premium/1-4-5/vendor/bootstrap/js/bootstrap.min.js"></script>
+        <script src="https://d19m59y37dris4.cloudfront.net/admin-premium/1-4-5/vendor/jquery.cookie/jquery.cookie.js"> </script>
+        <script src="https://d19m59y37dris4.cloudfront.net/admin-premium/1-4-5/vendor/chart.js/Chart.min.js"></script>
+        <script src="https://d19m59y37dris4.cloudfront.net/admin-premium/1-4-5/vendor/jquery-validation/jquery.validate.min.js"></script>
+        <!-- Data Tables-->
+        <script src="https://d19m59y37dris4.cloudfront.net/admin-premium/1-4-5/vendor/datatables.net/js/jquery.dataTables.js"></script>
+        <script src="https://d19m59y37dris4.cloudfront.net/admin-premium/1-4-5/vendor/datatables.net-bs4/js/dataTables.bootstrap4.js"></script>
+        <script src="https://d19m59y37dris4.cloudfront.net/admin-premium/1-4-5/vendor/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+        <script src="https://d19m59y37dris4.cloudfront.net/admin-premium/1-4-5/vendor/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
+        <script src="https://d19m59y37dris4.cloudfront.net/admin-premium/1-4-5/js/tables-datatable.js"></script>
+        <!-- Main File-->
+        <script src="https://d19m59y37dris4.cloudfront.net/admin-premium/1-4-5/js/front.js"></script>
   </body>
 </html>
