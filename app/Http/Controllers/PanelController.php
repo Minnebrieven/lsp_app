@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Auth;
+use \App\Apl01;
 
 class PanelController extends Controller
 {
@@ -34,5 +36,11 @@ class PanelController extends Controller
     public function detail_pembayaran()
     {
         return view('panel.detail-pembayaran');
+    }
+
+    public function bukti_pendaftaran()
+    {
+        $user = Apl01::where('user_id', Auth::user()->id)->first();
+        return view('panel.bukti-pendaftaran', compact('user'));
     }
 }

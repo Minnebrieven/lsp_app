@@ -38,6 +38,7 @@ class Apl01Controller extends Controller
         $apl->nomor_sertifikasi = $req->input('nomor_sertifikasi');
         $apl->tujuan_asesmen = $req->input('tujuan_asesmen');
         $apl->save();
+        return redirect('/panel/apl2');
     }
 
     public function delete_apl01($id)

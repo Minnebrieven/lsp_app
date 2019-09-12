@@ -125,21 +125,14 @@
           <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
           <ul class="list-unstyled">
             <li class="active"><a href="/panel"> <i class="icon-home"></i>Home </a></li>
-            <li><a href="/panel/apl1"> <i class="icon-grid"></i>APL 1 </a></li>
-            <li><a href="/panel/apl2"> <i class="icon-grid"></i>APL 2 </a></li>
+            <li><a href="/panel/apl1"> <i class="icon-grid"></i>Formulir APL </a></li>
             <li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-interface-windows"></i>Pembayaran </a>
               <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
                 <li><a href="/panel/bayar">Bayar</a></li>
                 <li><a href="/panel/bukti-pembayaran">Bukti Pembayaran</a></li>
-                <li><a href="#">Bukti Pendaftaran</a></li>
+                <li><a href="/panel/bukti-pendaftaran">Bukti Pendaftaran</a></li>
               </ul>
             </li>
-          </ul><span class="heading">Extras</span>
-          <ul class="list-unstyled">
-            <li> <a href="#"> <i class="icon-flask"></i>Demo </a></li>
-            <li> <a href="#"> <i class="icon-screen"></i>Demo </a></li>
-            <li> <a href="#"> <i class="icon-mail"></i>Demo </a></li>
-            <li> <a href="#"> <i class="icon-picture"></i>Demo </a></li>
           </ul>
         </nav>
         <div class="content-inner">

@@ -35,6 +35,15 @@
                 <input name="kode_unit" type="number" placeholder="Kode Unit" required data-msg="Silahkan masukkan kode unit" class="form-control">
               </div>
               <div class="form-group">
+                <label>Jurusan</label>
+                <select name="jurusan" class="form-control">
+                  <option value="RPL">RPL</option>
+                  <option value="OTP">OTP</option>
+                  <option value="BDP">BDP</option>
+                  <option value="AKL">AKL</option>
+                </select>
+              </div>
+              <div class="form-group">
                 <label>Judul Unit</label>
                 <input name="judul_unit" type="text" placeholder="Judul Unit" required data-msg="Silahkan masukkan judul unit" class="form-control">
               </div>

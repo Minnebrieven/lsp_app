@@ -22,6 +22,7 @@ class CreateApl02sTable extends Migration
             $table->string('nama_asesor');
             $table->string('nama_peserta');
             $table->date('tanggal');
+            $table->string('kode_unit');
             $table->string('kompetensi1')->nullable();
             $table->string('kompetensi2')->nullable();
             $table->string('kompetensi3')->nullable();

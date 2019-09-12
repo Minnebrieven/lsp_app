@@ -27,6 +27,7 @@ class PertanyaanController extends Controller
     	$tambah->pertanyaan = $r->pertanyaan;
 
     	$tambah->unit_id = $r->unit_id;
+        $tambah->jurusan = 'aa';
 
     	$tambah->save();
 

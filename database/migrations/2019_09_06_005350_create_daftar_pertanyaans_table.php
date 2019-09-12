@@ -20,6 +20,7 @@ class CreateDaftarPertanyaansTable extends Migration
             $table->string('elemen_kompetensi');
             $table->string('kuk');
             $table->string('pertanyaan');
+            $table->string('jurusan');
             $table->timestamps();
 
             // $table->foreign('apl02_id')->references('id')->on('apl02s')->onDelete('cascade')->onUpdate('cascade');

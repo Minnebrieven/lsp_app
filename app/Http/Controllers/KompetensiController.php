@@ -24,6 +24,7 @@ class KompetensiController extends Controller
     	$tambah->nomor = $r->nomor;
     	$tambah->kode_unit = $r->kode_unit;
     	$tambah->judul_unit = $r->judul_unit;
+        $tambah->jurusan = $r->jurusan;
 
     	$tambah->save();
 

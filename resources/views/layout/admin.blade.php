@@ -130,16 +130,16 @@
                       <li><a href="/admin/list-apl1">Daftar APL 1</a></li>
                     </ul>
                   </li>
+                    <li><a href="#kompetensi" aria-expanded="false" data-toggle="collapse"> <i class="icon-interface-windows"></i>Unit Kompetensi </a>
+                      <ul id="kompetensi" class="collapse list-unstyled ">
+                        <li><a href="/admin/tambah-kompetensi">Tambah Kompetensi</a></li>
+                        <li><a href="/admin/list-kompetensi">Daftar Kompetensi</a></li>
+                      </ul>
+                    </li>
                     <li><a href="#pertanyaan" aria-expanded="false" data-toggle="collapse"> <i class="icon-interface-windows"></i>Pertanyaan </a>
                     <ul id="pertanyaan" class="collapse list-unstyled ">
                       <li><a href="/admin/tambah-pertanyaan">Tambah Pertanyaan</a></li>
                       <li><a href="/admin/list-pertanyaan">Daftar Pertanyaan</a></li>
-                    </ul>
-                  </li>
-                    <li><a href="#kompetensi" aria-expanded="false" data-toggle="collapse"> <i class="icon-interface-windows"></i>Unit Kompetensi </a>
-                    <ul id="kompetensi" class="collapse list-unstyled ">
-                      <li><a href="/admin/tambah-kompetensi">Tambah Kompetensi</a></li>
-                      <li><a href="/admin/list-kompetensi">Daftar Kompetensi</a></li>
                     </ul>
                   </li>
                     <li><a href="#berita" aria-expanded="false" data-toggle="collapse"> <i class="icon-interface-windows"></i>Berita </a>
@@ -167,13 +167,14 @@
                     <li><a href="#">Bukti Pendaftaran</a></li>
                   </ul>
                 </li>
-              </ul><span class="heading">Extras</span>
+              </ul>
+              {{-- <span class="heading">Extras</span>
               <ul class="list-unstyled">
                 <li> <a href="#"> <i class="icon-flask"></i>Demo </a></li>
                 <li> <a href="#"> <i class="icon-screen"></i>Demo </a></li>
                 <li> <a href="#"> <i class="icon-mail"></i>Demo </a></li>
                 <li> <a href="#"> <i class="icon-picture"></i>Demo </a></li>
-              </ul>
+              </ul> --}}
             </nav>
             <div class="content-inner">
               @yield('content')

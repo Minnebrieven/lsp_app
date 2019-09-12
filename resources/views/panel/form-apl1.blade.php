@@ -189,11 +189,11 @@
                           <label class="col-sm-3 form-control-label">Tujuan Asesmen<br></label>
                           <div class="col-sm-9">
                             <div class="i-checks">
-                              <input id="radioCustom1" type="radio" value="option1" name="tujuan_asesmen" class="radio-template">
+                              <input id="radioCustom1" type="radio" value="sertifikasi" name="tujuan_asesmen" class="radio-template">
                               <label for="radioCustom1">Sertifikasi</label>
                             </div>
                             <div class="i-checks">
-                              <input id="radioCustom2" type="radio" checked="" value="option2" name="tujuan_asesmen" class="radio-template">
+                              <input id="radioCustom2" type="radio" checked="" value="sertifikasi ulang" name="tujuan_asesmen" class="radio-template">
                               <label for="radioCustom2">Sertifikasi Ulang</label>
                             </div>
                           </div>

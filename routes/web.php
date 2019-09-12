@@ -31,7 +31,7 @@ Route::group(['prefix' => 'daftar'], function ()
     Route::post('/status_kelengkapan_save', 'DaftarController@status_kelengkapan_save');
     Route::get('/kompetensi_relevan', 'DaftarController@kompetensi_relevan');
     Route::post('/kompetensi_relavan_save', 'DaftarController@kompetensi_relevan_save');
-    Route::get('/apl02', 'DaftarController@apl02save');
+    Route::post('/apl02', 'DaftarController@apl2save');
 });
 
 Route::get('/panel', 'PanelController@index');
@@ -40,6 +40,7 @@ Route::get('/apl1', 'PanelController@apl1');
 Route::get('/apl2', 'PanelController@apl2');
 Route::get('/bukti-pembayaran', 'PanelController@bukti_pembayaran');
 Route::get('/detail-pembayaran', 'PanelController@detail_pembayaran');
+Route::get('/bukti-pendaftaran', 'PanelController@bukti_pendaftaran');
 Route::get('/bayar', 'PanelController@bayar');
 });
 

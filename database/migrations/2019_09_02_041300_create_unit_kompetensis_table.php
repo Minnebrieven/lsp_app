@@ -20,6 +20,7 @@ class CreateUnitKompetensisTable extends Migration
             $table->string('kode_unit');
             $table->string('judul_unit');
             $table->string('jenis_standar')->nullable();
+            $table->string('jurusan');
             $table->timestamps();
 
             $table->foreign('apl_id')->references('id')->on('apl01s')->onDelete('cascade');

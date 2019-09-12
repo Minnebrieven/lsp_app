@@ -31,6 +31,7 @@
           </div>
           <div class="card-body">
             <form action="/daftar/apl02" class="form-horizontal" method="POST">
+              @csrf
               <div class="form-group row">
                 <label class="col-sm-3 form-control-label"><label style="color: red">*</label>NIK</label>
                 <div class="col-sm-9">
@@ -66,7 +67,7 @@
                   <label class="form-control-label"><label style="color: red">*</label>TUK</label>
                   <input type="text" name="nama_lengkap" class="form-control" placeholder="TUK" required>
                   <small class="help-block-none">
-                  *Contoh: Firmansyah Helmi Kurniawan
+                  *Pilih salah satu: Sewaktu/Tempat Kerja/Mandiri
                   </small>
                 </div>
                 <div class="col-md-6">
@@ -118,8 +119,13 @@
                 </div>
               </div>
               <div class="line"></div>
+              @php
+                $pertanyaan = \App\DaftarPertanyaan::all();
+              @endphp
+              @foreach($pertanyaan as $p)
+              <input type="hidden" name="pertanyaan_id" value="{{$p->id}}">
               <h4 class="mt-5 mb-4">Elemen Kompetensi:<br>
-              1.  Mengidentifikasi luas, sektor dan tanggung jawab industry
+              {{$p->elemen_kompetensi}}
               </h4>
               {{-- <div class="form-group row">
                 <label class="col-sm-3 form-control-label"><label style="color: red">*</label>Nomor KUK</label>
@@ -157,9 +163,9 @@
                 <div class="card text-white bg-primary">
                   <div class="card-header card-header-transparent">Daftar Pertanyaan (Asesmen Mandiri/Self  Assessment)</div>
                   <div class="card-body">
-                    <h5 class="card-title">Nomor KUK 1.1</h5>
+                    <h5 class="card-title">Nomor KUK {{$p->kuk}}</h5>
                     <p class="card-text text-white">
-                      Apakah anda dapat mengidentifikasI aspek-aspek eksternal yang mempengaruhi profesi teknisi akuntansi dalam menjalankan pekerjaan?
+                      {{$p->pertanyaan}}
                     </p>
                   </div>
                 </div>
@@ -169,12 +175,12 @@
               <label class="col-sm-3 form-control-label">PENILAIAN<br></label>
               <div class="col-sm-9">
                 <div class="i-checks">
-                  <input id="radioCustom1" type="radio" value="option1" name="a" class="radio-template">
-                  <label for="radioCustom1">K</label>
+                  <input id="penilaian1" type="radio" value="K" name="penilaian" class="radio-template">
+                  <label for="penilaian1">K</label>
                 </div>
                 <div class="i-checks">
-                  <input id="radioCustom2" type="radio" checked="" value="option2" name="a" class="radio-template">
-                  <label for="radioCustom2">BK</label>
+                  <input id="penilaian2" type="radio" checked="" value="BK" name="penilaian" class="radio-template">
+                  <label for="penilaian2">BK</label>
                 </div>
               </div>
             </div>
@@ -182,12 +188,12 @@
               <label class="col-sm-3 form-control-label">BUKTI-BUKTI KOMPETENSI<br></label>
               <div class="col-sm-9">
                 <div class="i-checks">
-                  <input id="radioCustom1" type="radio" value="option1" name="a" class="radio-template">
-                  <label for="radioCustom1">N</label>
+                  <input id="bukti1" type="radio" value="N" name="bukti_kompetensi" class="radio-template">
+                  <label for="bukti1">N</label>
                 </div>
                 <div class="i-checks">
-                  <input id="radioCustom2" type="radio" checked="" value="option2" name="a" class="radio-template">
-                  <label for="radioCustom2">Y</label>
+                  <input id="bukti2" type="radio" checked="" value="Y" name="bukti_kompetensi" class="radio-template">
+                  <label for="bukti2">Y</label>
                 </div>
               </div>
             </div>
@@ -195,207 +201,24 @@
               <label class="col-sm-3 form-control-label">Diisi Asesor<br></label>
               <div class="col-sm-9">
                 <div class="i-checks">
-                  <input id="radioCustom1" type="radio" value="option1" name="a" class="radio-template">
-                  <label for="radioCustom1">V</label>
+                  <input id="diisi_asesor1" type="radio" value="V" name="diisi_asesor" class="radio-template">
+                  <label for="diisi_asesor1">V</label>
                 </div>
                 <div class="i-checks">
-                  <input id="radioCustom2" type="radio" checked="" value="option2" name="a" class="radio-template">
-                  <label for="radioCustom2">A</label>
+                  <input id="diisi_asesor2" type="radio" checked="" value="A" name="diisi_asesor" class="radio-template">
+                  <label for="diisi_asesor2">A</label>
                 </div>
                 <div class="i-checks">
-                  <input id="radioCustom2" type="radio" checked="" value="option2" name="a" class="radio-template">
-                  <label for="radioCustom2">T</label>
+                  <input id="diisi_asesor3" type="radio" checked="" value="T" name="diisi_asesor" class="radio-template">
+                  <label for="diisi_asesor3">T</label>
                 </div>
                 <div class="i-checks">
-                  <input id="radioCustom2" type="radio" checked="" value="option2" name="a" class="radio-template">
-                  <label for="radioCustom2">M</label>
+                  <input id="diisi_asesor4" type="radio" checked="" value="M" name="diisi_asesor" class="radio-template">
+                  <label for="diisi_asesor4">M</label>
                 </div>
               </div>
             </div>
-            <div class="line"></div>
-            <h4 class="mt-5 mb-4">Elemen Kompetensi:<br>
-            2.  Menerapkan pedoman, prosedur, dan aturan
-            </h4>
-            <div class="row">
-              <div class="col-md-12">
-                <div class="card text-white bg-primary">
-                  <div class="card-header card-header-transparent">Daftar Pertanyaan (Asesmen Mandiri/Self  Assessment)</div>
-                  <div class="card-body">
-                    <h5 class="card-title">Nomor KUK 2.1</h5>
-                    <p class="card-text text-white">
-                      Apakah anda dapat mengumpulkan dan menganalisa  Informasi yang berhubungan dengan hukum, peraturan dan  kode  etik?
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="form-group row">
-              <label class="col-sm-3 form-control-label">PENILAIAN<br></label>
-              <div class="col-sm-9">
-                <div class="i-checks">
-                  <input id="radioCustom1" type="radio" value="option1" name="a" class="radio-template">
-                  <label for="radioCustom1">K</label>
-                </div>
-                <div class="i-checks">
-                  <input id="radioCustom2" type="radio" checked="" value="option2" name="a" class="radio-template">
-                  <label for="radioCustom2">BK</label>
-                </div>
-              </div>
-            </div>
-            <div class="form-group row">
-              <label class="col-sm-3 form-control-label">BUKTI-BUKTI KOMPETENSI<br></label>
-              <div class="col-sm-9">
-                <div class="i-checks">
-                  <input id="radioCustom1" type="radio" value="option1" name="a" class="radio-template">
-                  <label for="radioCustom1">N</label>
-                </div>
-                <div class="i-checks">
-                  <input id="radioCustom2" type="radio" checked="" value="option2" name="a" class="radio-template">
-                  <label for="radioCustom2">Y</label>
-                </div>
-              </div>
-            </div>
-            <div class="form-group row">
-              <label class="col-sm-3 form-control-label">Diisi Asesor<br></label>
-              <div class="col-sm-9">
-                <div class="i-checks">
-                  <input id="radioCustom1" type="radio" value="option1" name="a" class="radio-template">
-                  <label for="radioCustom1">V</label>
-                </div>
-                <div class="i-checks">
-                  <input id="radioCustom2" type="radio" checked="" value="option2" name="a" class="radio-template">
-                  <label for="radioCustom2">A</label>
-                </div>
-                <div class="i-checks">
-                  <input id="radioCustom2" type="radio" checked="" value="option2" name="a" class="radio-template">
-                  <label for="radioCustom2">T</label>
-                </div>
-                <div class="i-checks">
-                  <input id="radioCustom2" type="radio" checked="" value="option2" name="a" class="radio-template">
-                  <label for="radioCustom2">M</label>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-12">
-                <div class="card text-white bg-primary">
-                  <div class="card-header card-header-transparent">Daftar Pertanyaan (Asesmen Mandiri/Self  Assessment)</div>
-                  <div class="card-body">
-                    <h5 class="card-title">Nomor KUK 2.2</h5>
-                    <p class="card-text text-white">
-                      Apakah anda dapat  menentukan Informasi yang berhubungan  dengan hukum, peraturan dan kode etik dalam kaitannya dengan pihak yang bersangkutan di tempat kerja?
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="form-group row">
-              <label class="col-sm-3 form-control-label">PENILAIAN<br></label>
-              <div class="col-sm-9">
-                <div class="i-checks">
-                  <input id="radioCustom1" type="radio" value="option1" name="a" class="radio-template">
-                  <label for="radioCustom1">K</label>
-                </div>
-                <div class="i-checks">
-                  <input id="radioCustom2" type="radio" checked="" value="option2" name="a" class="radio-template">
-                  <label for="radioCustom2">BK</label>
-                </div>
-              </div>
-            </div>
-            <div class="form-group row">
-              <label class="col-sm-3 form-control-label">BUKTI-BUKTI KOMPETENSI<br></label>
-              <div class="col-sm-9">
-                <div class="i-checks">
-                  <input id="radioCustom1" type="radio" value="option1" name="a" class="radio-template">
-                  <label for="radioCustom1">N</label>
-                </div>
-                <div class="i-checks">
-                  <input id="radioCustom2" type="radio" checked="" value="option2" name="a" class="radio-template">
-                  <label for="radioCustom2">Y</label>
-                </div>
-              </div>
-            </div>
-            <div class="form-group row">
-              <label class="col-sm-3 form-control-label">Diisi Asesor<br></label>
-              <div class="col-sm-9">
-                <div class="i-checks">
-                  <input id="radioCustom1" type="radio" value="option1" name="a" class="radio-template">
-                  <label for="radioCustom1">V</label>
-                </div>
-                <div class="i-checks">
-                  <input id="radioCustom2" type="radio" checked="" value="option2" name="a" class="radio-template">
-                  <label for="radioCustom2">A</label>
-                </div>
-                <div class="i-checks">
-                  <input id="radioCustom2" type="radio" checked="" value="option2" name="a" class="radio-template">
-                  <label for="radioCustom2">T</label>
-                </div>
-                <div class="i-checks">
-                  <input id="radioCustom2" type="radio" checked="" value="option2" name="a" class="radio-template">
-                  <label for="radioCustom2">M</label>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-12">
-                <div class="card text-white bg-primary">
-                  <div class="card-header card-header-transparent">Daftar Pertanyaan (Asesmen Mandiri/Self  Assessment)</div>
-                  <div class="card-body">
-                    <h5 class="card-title">Nomor KUK 2.3</h5>
-                    <p class="card-text text-white">
-                      Apakah anda dapat  mempergunakan  ketentuan tentang praktik kerja yang relevan    sebagai dasar untuk menjalankan pekerjaan  dan pengambilan keputusan secara beretika?
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="form-group row">
-              <label class="col-sm-3 form-control-label">PENILAIAN<br></label>
-              <div class="col-sm-9">
-                <div class="i-checks">
-                  <input id="radioCustom1" type="radio" value="option1" name="a" class="radio-template">
-                  <label for="radioCustom1">K</label>
-                </div>
-                <div class="i-checks">
-                  <input id="radioCustom2" type="radio" checked="" value="option2" name="a" class="radio-template">
-                  <label for="radioCustom2">BK</label>
-                </div>
-              </div>
-            </div>
-            <div class="form-group row">
-              <label class="col-sm-3 form-control-label">BUKTI-BUKTI KOMPETENSI<br></label>
-              <div class="col-sm-9">
-                <div class="i-checks">
-                  <input id="radioCustom1" type="radio" value="option1" name="a" class="radio-template">
-                  <label for="radioCustom1">N</label>
-                </div>
-                <div class="i-checks">
-                  <input id="radioCustom2" type="radio" checked="" value="option2" name="a" class="radio-template">
-                  <label for="radioCustom2">Y</label>
-                </div>
-              </div>
-            </div>
-            <div class="form-group row">
-              <label class="col-sm-3 form-control-label">Diisi Asesor<br></label>
-              <div class="col-sm-9">
-                <div class="i-checks">
-                  <input id="radioCustom1" type="radio" value="option1" name="a" class="radio-template">
-                  <label for="radioCustom1">V</label>
-                </div>
-                <div class="i-checks">
-                  <input id="radioCustom2" type="radio" checked="" value="option2" name="a" class="radio-template">
-                  <label for="radioCustom2">A</label>
-                </div>
-                <div class="i-checks">
-                  <input id="radioCustom2" type="radio" checked="" value="option2" name="a" class="radio-template">
-                  <label for="radioCustom2">T</label>
-                </div>
-                <div class="i-checks">
-                  <input id="radioCustom2" type="radio" checked="" value="option2" name="a" class="radio-template">
-                  <label for="radioCustom2">M</label>
-                </div>
-              </div>
-            </div>
+            @endforeach
             <div class="line"></div>
             <div class="row">
               <div class="col-md-12">
@@ -470,7 +293,7 @@
             </div>
             <div class="line"></div>
             <div class="form-group row">
-              <div class="col-sm-4 offset-sm-3">
+              <div class="col-sm-4 offset-sm-9">
                 <button type="submit" class="btn btn-secondary">Cancel</button>
                 <button type="submit" class="btn btn-primary">Save changes</button>
               </div>

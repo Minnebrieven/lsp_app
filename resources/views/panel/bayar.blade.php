@@ -24,24 +24,29 @@
                     <table id="datatable1" style="width: 100%;" class="table">
                       <thead>
                         <tr>
-                          <th>Name</th>
-                          <th>Company</th>
-                          <th>Email</th>
-                          <th>Phone</th>
-                          <th>City</th>
-                          <th>Orders</th>
+                          <th>No Sertifikasi</th>
+                          <th>Judul Sertifikasi</th>
+                          <th>Nama Lengkap</th>
+                          <th>No Telepon</th>
+                          <th>Tujuan Asesmen</th>
+                          <th>NIK</th>
                         </tr>
                       </thead>
+                      @php
+                        $data = \App\Apl01::where('user_id', Auth::user()->id)->get();
+                      @endphp
+                      @foreach($data as $d)
                       <tbody>
                         <tr>
-                          <td><a href="javascript:void(0)" class="text-muted">Nielsen Cobb</a></td>
-                          <td>Memora</td>
-                          <td>nielsencobb@memora.com</td>
-                          <td>+1 (851) 552-2735</td>
-                          <td>Graniteville</td>
-                          <td>0                                                 </td>
+                          <td><a href="javascript:void(0)" class="text-muted">{{$d->nomor_sertifikasi}}</a></td>
+                          <td>{{$d->judul_sertifikasi}}</td>
+                          <td>{{$d->nama_lengkap}}</td>
+                          <td>{{$d->no_telp}}</td>
+                          <td>{{$d->tujuan_asesmen}}</td>
+                          <td>{{$d->nik}}</td>
                         </tr>
                       </tbody>
+                      @endforeach
                     </table>
                   </div>
                 </div>

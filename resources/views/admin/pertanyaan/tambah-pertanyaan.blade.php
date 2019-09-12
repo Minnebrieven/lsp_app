@@ -32,10 +32,10 @@
                 </div>
                 @endif
                 <label>Unit Kompetensi</label>
-                <select class="form-control" name="unit_id">
-                  @php
+                @php
                     $unit = \App\UnitKompetensi::all();
-                  @endphp
+                @endphp
+                <select class="form-control" name="unit_id">
                   @foreach($unit as $u)
                   <option value="{{$u->kode_unit}}">{{$u->nomor}} - {{$u->judul_unit}}</option>
                   @endforeach

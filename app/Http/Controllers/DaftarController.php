@@ -4,14 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
-use App\Apl01;
-use App\Apl02;
+use \App\Apl01;
+use \App\Apl02;
 use App\Data_pekerjaan_sekarang;
 use App\UnitKompetensi;
 use App\BuktiKelengkapanPemohon;
 use App\Status_kelengkapan;
 use App\BuktiKompetensiRelevan;
 use App\Status_kompetensi_relevan;
+use App\JawabanPertanyaan;
 use Auth;
 
 class DaftarController extends Controller
@@ -44,7 +45,7 @@ class DaftarController extends Controller
         $apl->tujuan_asesmen = $req->input('tujuan_asesmen');
         $apl->save();
 
-        return(url('daftar/data_pekerjaan'));
+        return redirect('/panel/apl2');
     }
 
     public function data_pekerjaan($aplid)
@@ -120,7 +121,7 @@ class DaftarController extends Controller
         return view('daftar.apl02');
     }
 
-    public function apl02(Request $r)
+    public function apl02a(Request $r)
     {
         $pertanyaan = DaftarPertanyaan::with('pertanyaans')->get();
         foreach($pertanyaan as $index => $jwbn)
@@ -138,11 +139,22 @@ class DaftarController extends Controller
     public function apl2save(Request $r)
     {
         $apl2 = new Apl02;
+        $apl2->user_id = Auth::user()->id;
         $apl2->judul = $r->judul;
         $apl2->nomor = $r->nomor;
         $apl2->tuk = $r->tuk;
         $apl2->nama_asesor = $r->nama_asesor;
         $apl2->nama_peserta = $r->nama_peserta;
         $apl2->tanggal = $r->tanggal;
+
+        $jawab = new JawabanPertanyaan;
+        $jawab->user_id = Auth::user()->id;
+        $jawab->pertanyaan_id = $r->pertanyaan_id;
+        $jawab->penilaian = $r->penilaian;
+        $jawab->diisi_asesor = $r->diisi_asesor;
+        $jawab->bukti_kompetensi = $r->bukti_kompetensi;
+        $jawab->save();
+
+        return redirect('/panel/bayar');
     }
 }
