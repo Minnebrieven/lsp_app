@@ -1,4 +1,4 @@
-@extends('layout.panel')
+@extends('layout.admin')
 @section('content')
 <header class="page-header">
             <div class="container-fluid">
@@ -31,9 +31,16 @@
                   		</div>
                   	</div>
                   	<div class="col-lg-6">
+                      @if($status->status == 'BELUM LUNAS')
                   		<div class="form-group text-red">
-                  			{{$status->status}}
+                        <td>{{$status->status}}</td>
                   		</div>
+                      @endif
+                      @if($status->status == 'LUNAS')
+                      <div class="form-group text-green">
+                        <td>{{$status->status}}</td>
+                      </div>
+                      @endif
                   	</div>
                     <div class="col-lg-6">
                       <div class="form-group">
@@ -49,13 +56,8 @@
                         <input type="text" class="form-control" value="{{$bayar->judul_sertifikasi}}" readonly>
                       </div>
                       <div class="form-group">
-                      <label>Metode Pembayaran</label>
-                      <select class="form-control" name="nomor_rekening" required>
-                        @foreach($bank as $banks)
-                        <option>Pilih Metode Pembayaran</option>
-                        <option value="{{$banks->no_rekening}}">{{$banks->no_rekening}} - {{$banks->nama_bank}} - A/N {{$banks->nama_pemilik}}</option>
-                        @endforeach
-                      </select>
+                        <label>Metode Pembayaran</label>
+                        <input type="text" class="form-control" value="{{$status->nomor_rekening}}" readonly>
                       </div>
                     </div>
                     <div class="col-lg-6">
@@ -84,12 +86,12 @@
                       </div>
                     </div>
                   </div>
-                  <div class="form-group m-b-0">
-                    <label>UPLOAD BUKTI PEMBAYARAN</label>
-                    <input type="file" name="bukti" class="form-control" required>
+                  <div class="form-group" style="margin: 140px;">
+                    <img class="img-fluid" style="width: 700px;height: 500px;" src="/bukti/{{$status->bukti}}">
                   </div>
                   <div class="form-group m-b-0">
-                    <button class="form-control" type="submit">Bayar</button>
+                    <a href="/admin/transaksi-lunas/{{$bayar->nomor_sertifikasi}}" class="form-control text-center bg-green">LUNAS</a>
+                    <a href="/admin/transaksi-ditolak/{{$bayar->nomor_sertifikasi}}" class="form-control text-center bg-red">DITOLAK</a>
                   </div>
                 </div>
                 </form>

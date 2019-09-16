@@ -43,6 +43,8 @@ class DaftarController extends Controller
         $apl->judul_sertifikasi = $req->judul_sertifikasi;
         $apl->nomor_sertifikasi = $req->nomor_sertifikasi;
         $apl->tujuan_asesmen = $req->input('tujuan_asesmen');
+        $apl->invoice = rand(10,100);
+        $apl->status = 'BELUM LUNAS';
         $apl->save();
 
         return redirect('/panel/apl2');

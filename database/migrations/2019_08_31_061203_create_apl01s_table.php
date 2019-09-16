@@ -32,6 +32,8 @@ class CreateApl01sTable extends Migration
             $table->string('judul_sertifikasi');
             $table->string('nomor_sertifikasi');
             $table->string('tujuan_asesmen');
+            $table->string('invoice');
+            $table->string('status');
             $table->timestamps();
         });
     }

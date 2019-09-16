@@ -39,9 +39,10 @@ Route::group(['prefix' => 'panel'], function(){
 Route::get('/apl1', 'PanelController@apl1');
 Route::get('/apl2', 'PanelController@apl2');
 Route::get('/bukti-pembayaran', 'PanelController@bukti_pembayaran');
-Route::get('/detail-pembayaran', 'PanelController@detail_pembayaran');
+Route::get('/detail-pembayaran/{nomor_sertifikasi}', 'PanelController@detail_pembayaran');
 Route::get('/bukti-pendaftaran', 'PanelController@bukti_pendaftaran');
 Route::get('/bayar', 'PanelController@bayar');
+Route::post('/bayar-sertifikasi', 'PanelController@bayar_sertifikasi');
 });
 
 Route::get('/admin', 'AdminController@index');
@@ -72,4 +73,9 @@ Route::post('/proses-tambah-pertanyaan', 'PertanyaanController@proses_tambah_per
 Route::get('/list-apl1', 'Apl01Controller@list_apl1');
 Route::get('/tambah-apl1', 'Apl01Controller@tambah_apl1');
 Route::post('/proses-tambah-apl1', 'Apl01Controller@proses_tambah_apl1');
+
+Route::get('/list-transaksi', 'Apl01Controller@list_transaksi');
+Route::get('/detail-transaksi/{nomor_sertifikasi}', 'Apl01Controller@detail_transaksi');
+Route::get('/transaksi-lunas/{nomor_sertifikasi}', 'Apl01Controller@transaksi_lunas');
+Route::get('/transaksi-ditolak/{nomor_sertifikasi}', 'Apl01Controller@transaksi_ditolak');
 });

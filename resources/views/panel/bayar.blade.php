@@ -30,20 +30,30 @@
                           <th>No Telepon</th>
                           <th>Tujuan Asesmen</th>
                           <th>NIK</th>
+                          <th>Status</th>
                         </tr>
                       </thead>
                       @php
                         $data = \App\Apl01::where('user_id', Auth::user()->id)->get();
                       @endphp
                       @foreach($data as $d)
+                      @php
+                        $status = \App\Transaksi::where('nomor_sertifikasi', $d->nomor_sertifikasi)->first();
+                      @endphp
                       <tbody>
                         <tr>
-                          <td><a href="javascript:void(0)" class="text-muted">{{$d->nomor_sertifikasi}}</a></td>
+                          <td><a href="/panel/detail-pembayaran/{{$d->nomor_sertifikasi}}" class="text-muted">{{$d->nomor_sertifikasi}}</a></td>
                           <td>{{$d->judul_sertifikasi}}</td>
                           <td>{{$d->nama_lengkap}}</td>
                           <td>{{$d->no_telp}}</td>
                           <td>{{$d->tujuan_asesmen}}</td>
                           <td>{{$d->nik}}</td>
+                          @if($status->status == 'BELUM LUNAS')
+                          <td style="color: red">{{$status->status}}</td>
+                          @endif
+                          @if($status->status == 'LUNAS')
+                          <td style="color: green">{{$status->status}}</td>
+                          @endif
                         </tr>
                       </tbody>
                       @endforeach

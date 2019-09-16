@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use \App\Apl01;
+use \App\Transaksi;
 
 class Apl01Controller extends Controller
 {
@@ -46,5 +47,38 @@ class Apl01Controller extends Controller
         $apl01 = Apl01::find($id);
         $apl01->delete();
         return redirect(url('/'));
+    }
+
+    public function list_transaksi()
+    {
+        $transaksi = Transaksi::all();
+        return view('admin.transaksi.list-transaksi', compact('transaksi'));
+    }
+
+    public function detail_transaksi($nomor_sertifikasi)
+    {
+        $bayar = \App\Apl01::where('nomor_sertifikasi', $nomor_sertifikasi)->first();
+        $bank = \App\Bank::all();
+        $status = \App\Transaksi::where('nomor_sertifikasi', $nomor_sertifikasi)->first();
+        $detail = Transaksi::where('nomor_sertifikasi', $nomor_sertifikasi)->first();
+        return view('admin.transaksi.detail-transaksi', compact('detail', 'bayar', 'bank', 'status'));
+    }
+
+    public function transaksi_lunas(Request $r, $nomor_sertifikasi)
+    {
+        $lunas = Transaksi::where('nomor_sertifikasi', $nomor_sertifikasi)->first();
+        $lunas->status = 'LUNAS';
+        $lunas->save();
+
+        return redirect('/admin/list-transaksi');
+    }
+
+    public function transaksi_ditolak(Request $r, $nomor_sertifikasi)
+    {
+        $lunas = Transaksi::where('nomor_sertifikasi', $nomor_sertifikasi)->first();
+        $lunas->status = 'DITOLAK';
+        $lunas->save();
+
+        return redirect('/admin/list-transaksi');
     }
 }
